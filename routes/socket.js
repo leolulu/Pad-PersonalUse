@@ -1,10 +1,14 @@
 var app = require('express')
 var shortid = require('shortid')
 var router = app.Router()
+var fs = require("fs")
 
 module.exports = function (io) {
   var welcomeMessage = 'Pad created! Share the URL with a friend to edit text in real-time.'
   var pages = new Map() // Stores Pad data
+
+  content = fs.readFileSync('data.txt')
+  pages.set('default', content.toString())
 
   // Handle WebSocket connections
   io.on('connection', function (socket) {
@@ -31,6 +35,13 @@ module.exports = function (io) {
       // Update pad data in memory
       pages.set(data.path, data.text)
       var curr = pages.get(data.path)
+
+      // Write to local data
+      fs.writeFile('data.txt', curr, function (err) {
+        if (err) {
+          return console.error(err)
+        }
+      })
 
       // Notify everyone of update
       notifyAll(socket, curr, data.path)
