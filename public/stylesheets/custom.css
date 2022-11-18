@@ -8,10 +8,20 @@
   src: url('/fonts/TTTGB-Medium.ttf')
 }
 
+@font-face {
+  font-family: dongqingheiw6;
+  src: url('/fonts/Hiragino Sans GB W6.ttf')
+}
+
+@font-face {
+  font-family: dongqingheiw3;
+  src: url('/fonts/Hiragino Sans GB W3.ttf')
+}
+
 
 #text {
   font-size: 200%;
-  font-family: tencentf;
+  font-family: dongqingheiw3;
 
   resize: none;
   position: fixed;
