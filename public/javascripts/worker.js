@@ -47,20 +47,18 @@ function keydownfun(e) {
   updateScreen(e.target.value)
 }
 
-
-function updateScreen(text) {
-  document.getElementById("out").innerHTML = colorize(text)
-}
-
 function scrollfun(e) {
   var elem = e.target
   // set out to be the same as in
   document.getElementById("out").style.top = `-${elem.scrollTop}px`
 }
 
+function updateScreen(text) {
+  document.getElementById("out").innerHTML = colorize(text)
+}
+
 
 function colorize(text) {
-
   function process(keywords, color) {
     for (let keyword of keywords) {
       text = text.replaceAll(keyword, `<span style="color:${color}">${keyword}</span>`)
