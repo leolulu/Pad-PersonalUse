@@ -28,9 +28,9 @@ socket.on('notify', function (data) {
 })
 
 // Send latest data to server
-function processText(e) {
-  var x = e.target.value
-  updateScreen(x);
+function processText() {
+  var x = document.getElementById('text').value
+  updateScreen(x)
 
   if (cache != x) {
     socket.emit('data', {
@@ -43,25 +43,19 @@ function processText(e) {
 
 // dynamic styling
 
-var out = null
+function keydownfun(e) {
+  updateScreen(e.target.value)
+}
+
 
 function updateScreen(text) {
-  if (out == null) {
-    out = document.getElementById("out")
-    text_in = document.getElementById("text")
-  }
-  out.innerHTML = colorize(text)
+  document.getElementById("out").innerHTML = colorize(text)
 }
 
 function scrollfun(e) {
   var elem = e.target
-  if (out == null) {
-    out = document.getElementById("out")
-    text_in = document.getElementById("text")
-    document.getElementById('text').style.color = "transparent"
-  }
   // set out to be the same as in
-  out.style.top = `-${elem.scrollTop}px`
+  document.getElementById("out").style.top = `-${elem.scrollTop}px`
 }
 
 
@@ -74,9 +68,9 @@ function colorize(text) {
   }
 
   process(["[x]"], "green")
-  process(["[ ]","[]"], "red")
-  process(["adj.","n.","v.","adv."], "#7DB9DE")
-  process(["* ","- "], "#F7D94C")
+  process(["[ ]", "[]"], "red")
+  process(["adj.", "n.", "v.", "adv."], "#7DB9DE")
+  process(["* ", "- "], "#F7D94C")
 
   return text
 }

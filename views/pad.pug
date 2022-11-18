@@ -12,5 +12,5 @@ html
 
   body
     div(class="code-editor-container")
-      textarea(class="code-editor code-editor-background" id="text" onkeyup="processText(event)" onscroll="scrollfun(event)" placeholder=temp)
+      textarea(class="code-editor code-editor-background" id="text" onkeydown="keydownfun(event)" onkeyup="processText()" onscroll="scrollfun(event)" placeholder=temp)
       div(class="code-editor code-editor-foreground" id="out")
