@@ -1,4 +1,5 @@
 # Logs
+start.bat
 logs
 *.log
 *.txt
