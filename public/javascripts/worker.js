@@ -81,8 +81,10 @@ function colorize(text) {
     }
   }
 
-  process(["[ ]"], "red")
   process(["[x]"], "green")
+  process(["[ ]","[]"], "red")
+  process(["adj.","n.","v.","adv."], "#7DB9DE")
+  process(["* ","- "], "#F7D94C")
 
   return text
 }
