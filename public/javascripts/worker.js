@@ -13,12 +13,15 @@ if (f.substr(f.length - 1) == '/') {
 }
 
 // Ask server latest data
-socket.emit('sync', { path: pathname })
+socket.emit('sync', {
+  path: pathname
+})
 
 // Set TextArea as server response
 socket.on('notify', function (data) {
   if (data.path == pathname) {
     document.getElementById('text').value = data.content
+    updateScreen(data.content)
   } else {
     console.log('Recieved: ' + data.path + ' Have: ' + pathname)
   }
@@ -47,13 +50,13 @@ function updateScreen(text) {
   if (out == null) {
     out = document.getElementById("out")
     text_in = document.getElementById("text")
-  } else {
-    out.innerHTML = colorize(text)
-    if (need_transparent){
-      document.getElementById('text').style.color = "transparent"
-      need_transparent = false
-    }
   }
+  out.innerHTML = colorize(text)
+  if (need_transparent) {
+    document.getElementById('text').style.color = "transparent"
+    need_transparent = false
+  }
+
 }
 
 function scrollfun(e) {
@@ -62,14 +65,14 @@ function scrollfun(e) {
     out = document.getElementById("out")
     text_in = document.getElementById("text")
     document.getElementById('text').style.color = "transparent"
-  } else {
-    // set out to be the same as in
-    out.style.top = `-${elem.scrollTop}px`
-    if (need_transparent){
-      document.getElementById('text').style.color = "transparent"
-      need_transparent = false
-    }
   }
+  // set out to be the same as in
+  out.style.top = `-${elem.scrollTop}px`
+  if (need_transparent) {
+    document.getElementById('text').style.color = "transparent"
+    need_transparent = false
+  }
+
 }
 
 
