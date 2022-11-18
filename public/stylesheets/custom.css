@@ -1,16 +1,27 @@
+@font-face {
+  font-family: deyihei;
+  src: url('/fonts/SmileySans-Oblique.ttf')
+}
+
+@font-face {
+  font-family: tencentf;
+  src: url('/fonts/TTTGB-Medium.ttf')
+}
+
 
 #text {
   font-size: 200%;
+  font-family: tencentf;
 
   resize: none;
   position: fixed;
   border: none;
   outline: none;
 
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 
   width: 100%;
   height: 95%;
