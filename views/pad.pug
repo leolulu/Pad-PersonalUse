@@ -4,11 +4,13 @@ html
   head
     title= title
 
-    link(rel='stylesheet', href='/stylesheets/custom.css')
+    link(rel='stylesheet' href='/stylesheets/custom.css')
     link(rel="icon" href="https://getbootstrap.com/favicon.ico")
 
     script(src="/socket.io/socket.io.js" type="text/javascript")
-    script(src="/javascripts/worker.js", type="text/javascript")
+    script(src="/javascripts/worker.js" type="text/javascript")
 
   body
-    textarea(id="text", autocomplete="off", onkeyup="processText()", placeholder=temp)
+    div(class="code-editor-container")
+      textarea(class="code-editor code-editor-background" id="text" onkeyup="processText(event)" onscroll="scrollfun(event)" placeholder=temp)
+      div(class="code-editor code-editor-foreground" id="out")

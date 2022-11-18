@@ -25,11 +25,64 @@ socket.on('notify', function (data) {
 })
 
 // Send latest data to server
-function processText () {
-  var x = document.getElementById('text').value
+function processText(e) {
+  var x = e.target.value
+  updateScreen(x);
 
   if (cache != x) {
-    socket.emit('data', { text: x, path: pathname })
+    socket.emit('data', {
+      text: x,
+      path: pathname
+    })
     cache = x
   }
+}
+
+// dynamic styling
+
+var out = null
+var need_transparent = true
+
+function updateScreen(text) {
+  if (out == null) {
+    out = document.getElementById("out")
+    text_in = document.getElementById("text")
+  } else {
+    out.innerHTML = colorize(text)
+    if (need_transparent){
+      document.getElementById('text').style.color = "transparent"
+      need_transparent = false
+    }
+  }
+}
+
+function scrollfun(e) {
+  var elem = e.target
+  if (out == null) {
+    out = document.getElementById("out")
+    text_in = document.getElementById("text")
+    document.getElementById('text').style.color = "transparent"
+  } else {
+    // set out to be the same as in
+    out.style.top = `-${elem.scrollTop}px`
+    if (need_transparent){
+      document.getElementById('text').style.color = "transparent"
+      need_transparent = false
+    }
+  }
+}
+
+
+function colorize(text) {
+
+  function process(keywords, color) {
+    for (let keyword of keywords) {
+      text = text.replaceAll(keyword, `<span style="color:${color}">${keyword}</span>`)
+    }
+  }
+
+  process(["[ ]"], "red")
+  process(["[x]"], "green")
+
+  return text
 }
