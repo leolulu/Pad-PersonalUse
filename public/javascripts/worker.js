@@ -44,7 +44,6 @@ function processText(e) {
 // dynamic styling
 
 var out = null
-var need_transparent = true
 
 function updateScreen(text) {
   if (out == null) {
@@ -52,11 +51,6 @@ function updateScreen(text) {
     text_in = document.getElementById("text")
   }
   out.innerHTML = colorize(text)
-  if (need_transparent) {
-    document.getElementById('text').style.color = "transparent"
-    need_transparent = false
-  }
-
 }
 
 function scrollfun(e) {
@@ -68,11 +62,6 @@ function scrollfun(e) {
   }
   // set out to be the same as in
   out.style.top = `-${elem.scrollTop}px`
-  if (need_transparent) {
-    document.getElementById('text').style.color = "transparent"
-    need_transparent = false
-  }
-
 }
 
 

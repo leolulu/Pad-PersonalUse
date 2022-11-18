@@ -77,7 +77,7 @@ body {
   resize: none;
   background-color: rgb(44, 44, 44);
   caret-color: white;
-  /* color: transparent; */
+  color: transparent;
 }
 
 .code-editor-background::selection {
