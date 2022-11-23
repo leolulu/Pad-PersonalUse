@@ -30,6 +30,11 @@ socket.on('notify', function (data) {
 // Send latest data to server
 function processText() {
   var x = document.getElementById('text').value
+  x = x.replaceAll("【】", "[  ]")
+  x = x.replaceAll("[x  ]", "[x]")
+  x = x.replaceAll("[ x ]", "[x]")
+  x = x.replaceAll("[  x]", "[x]")
+  document.getElementById("text").value = x
   updateScreen(x)
 
   if (cache != x) {
