@@ -31,6 +31,7 @@ socket.on('notify', function (data) {
 function processText() {
   var x = document.getElementById('text').value
   x = x.replaceAll("【】", "[  ]")
+  x = x.replaceAll("[]", "[  ]")
   x = x.replaceAll("[x  ]", "[x]")
   x = x.replaceAll("[ x ]", "[x]")
   x = x.replaceAll("[  x]", "[x]")
