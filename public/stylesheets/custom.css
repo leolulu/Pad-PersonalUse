@@ -1,21 +1,25 @@
 @font-face {
   font-family: deyihei;
-  src: url('/fonts/SmileySans-Oblique.ttf')
+  src: url('/fonts/SmileySans-Oblique.ttf');
+  font-display: swap;
 }
 
 @font-face {
   font-family: tencentf;
-  src: url('/fonts/TTTGB-Medium.ttf')
+  src: url('/fonts/TTTGB-Medium.ttf');
+  font-display: swap;
 }
 
 @font-face {
   font-family: dongqingheiw6;
-  src: url('/fonts/Hiragino Sans GB W6.ttf')
+  src: url('/fonts/Hiragino Sans GB W6.ttf');
+  font-display: swap;
 }
 
 @font-face {
   font-family: dongqingheiw3;
-  src: url('/fonts/Hiragino Sans GB W3.ttf')
+  src: url('/fonts/Hiragino Sans GB W3.ttf');
+  font-display: swap;
 }
 
 
@@ -63,7 +67,7 @@ body {
   top: 0;
   padding: 10px;
   margin: 0;
-  font-family: dongqingheiw6;
+  font-family: dongqingheiw6, sans-serif;
   font-size: 1.5rem;
   border: none;
   outline: none;
