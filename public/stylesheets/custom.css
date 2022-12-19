@@ -85,7 +85,7 @@ body {
 }
 
 .code-editor-background::selection {
-  color: transparent;
+  color: yellow;
   background: #239123;
 }
 
