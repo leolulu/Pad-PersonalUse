@@ -35,6 +35,7 @@ function processText() {
   x = x.replaceAll("[x  ]", "[x]")
   x = x.replaceAll("[ x ]", "[x]")
   x = x.replaceAll("[  x]", "[x]")
+  x = x.replaceAll("* ", " · ")
   document.getElementById("text").value = x
   updateScreen(x)
 
@@ -75,6 +76,7 @@ function colorize(text) {
   process(["[ ]", "[]", "[  ]"], "red")
   process(["adj.", "n.", "vi.", "vt.", "adv.", "v."], "#7DB9DE")
   process(["* ", "- "], "#E03C8A")
+  process([" · "], "red")
 
   return text
 }
