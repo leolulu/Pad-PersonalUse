@@ -1066,7 +1066,7 @@ const instance = new AutoSuggest({
         console.log('"' + change + '" has been inserted into #' + this.id);
     },
     suggestions: [{
-        trigger: '##',
+        trigger: '',
         values: word_list
     }]
 }, document.getElementById('text'));
